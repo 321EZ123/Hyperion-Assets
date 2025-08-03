@@ -16,10 +16,10 @@
     <style>
         :root {
             --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --primary-color: #FFD700; /* Gold */
-            --background-color: #0D0D0D; /* Very dark background */
-            --tile-background: #1A1A1A; /* Darker tile */
-            --hover-background: #333; /* Medium dark for hover effects */
+            --primary-color: #FFD700; 
+            --background-color: #0D0D0D; 
+            --tile-background: #1A1A1A; 
+            --hover-background: #333; 
         }
 
         * {
@@ -56,7 +56,7 @@
             border: none;
             box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
             transition: all 0.3s;
-            background-color: #222; /* Dark background for input */
+            background-color: #222; 
             color: var(--primary-color);
         }
 
@@ -187,9 +187,6 @@
     <input type="text" id="search" onkeyup="searchGames()" placeholder="Search for games..." />
     <div id="loader"></div>
     <div id="game-container" class="flex-container"></div>
-    <p class="text-center">
-        <a href="index.html" class="btn">Go to Horizon Home</a>
-    </p>
     <button id="back-to-top" title="Back to top">↑</button>
     <script>
         const games = [
