@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Credits | Horizon</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://raw.githubusercontent.com/321EZ123/Horizon/refs/heads/main/horizon-logo.png" />
+    <style>
+        :root {
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --primary-color: #FFD700; 
+            --background-color: #0D0D0D; 
+            --text-color: #FFFFFF; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-color);
+            background-color: var(--background-color);
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 2rem 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            padding: 0.5rem 1.2rem;
+            background: var(--primary-color);
+            color: #222;
+            border: none;
+            border-radius: 24px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #ffcc00; 
+        }
+
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: #222;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        #back-to-top:hover {
+            background: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Credits</h1>
+    <p>Special thanks to:</p>
+    <p>Developers, Artists, and Contributors who made this project possible.</p>
+    <p>Open-source libraries used:</p>
+    <ul>
+        <li>jQuery</li>
+        <li>Bootstrap</li>
+        <li>Font Awesome</li>
+        <li>Various game developers</li>
+    </ul>
+    <p>For more information, join our Discord!</p>
+    <a href="https://discord.gg/Gv4rVt2SJp" class="btn" target="_blank">Join Our Discord</a>
+    
+    <button id="back-to-top" title="Back to top">↑</button>
+    
+    <script>
+        const backToTopButton = document.getElementById('back-to-top');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        backToTopButton.onclick = function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+    </script>
+</body>
+</html>
