@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperion Proxy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            color: #FFD700;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .logo-container {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        
+        .search-container {
+            width: 100%;
+            max-width: 650px;
+            margin-bottom: 15px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 12px;
+        }
+        
+        #search-input {
+            flex: 1;
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 50px;
+            padding: 18px 25px;
+            font-size: 1.1rem;
+            color: #FFF;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        #search-input:focus {
+            border-color: #FFD700;
+        }
+        
+        #search-input::placeholder {
+            color: #888;
+        }
+        
+        #search-button {
+            background: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            padding: 0 35px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+        
+        #search-button:hover {
+            background: #ffc400;
+            transform: translateY(-2px);
+        }
+        
+        .icon-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .icon-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            width: 85px;
+            transition: transform 0.3s;
+        }
+        
+        .icon-link:hover {
+            transform: translateY(-5px);
+        }
+        
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            border: 2px solid #222;
+            transition: border-color 0.3s;
+        }
+        
+        .icon-link:hover .icon-circle {
+            border-color: #FFD700;
+        }
+        
+        .icon {
+            font-size: 28px;
+            color: #FFD700;
+        }
+        
+        .icon-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <h1>HYPERION PROXY</h1>
+        <p class="tagline">A secure web proxy for unrestricted browsing</p>
+    </div>
+    
+    <div class="search-container">
+        <form id="search-form" class="search-box">
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="Search or enter a URL.." 
+                autocomplete="off"
+            >
+            <button type="submit" id="search-button">SEARCH</button>
+        </form>
+    </div>
+    
+    <div class="icon-grid">
+        <a href="/projects.html" class="icon-link">
+            <div class="icon-circle">
+                <i class="fas fa-gamepad icon"></i>
+            </div>
+            <span class="icon-label">Projects</span>
+        </a>
+        
+        <a href="/apps.html" class="icon-link">
+            <div class="icon-circle">
+                <i class="fas fa-th-large icon"></i>
+            </div>
+            <span class="icon-label">Apps</span>
+        </a>
+        
+        <a href="/partners.html" class="icon-link">
+            <div class="icon-circle">
+                <i class="fas fa-shield-alt icon"></i>
+            </div>
+            <span class="icon-label">Partners</span>
+        </a>
+        
+        <a href="/credits.html" class="icon-link">
+            <div class="icon-circle">
+                <i class="fas fa-file-alt icon"></i>
+            </div>
+            <span class="icon-label">Credits</span>
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('search-input').value.trim();
+            
+            if (input) {
+                try {
+                    const url = new URL(input);
+                    window.location.href = url.href;
+                } catch (e) {
+                    const searchQuery = encodeURIComponent(input);
+                    window.location.href = `https://search.brave.com/search?q=${searchQuery}`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
